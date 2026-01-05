@@ -2,7 +2,7 @@ import time
 import threading
 from threading import Thread
 from pathlib import Path
-
+import argparse
 import mujoco
 import mujoco.viewer
 
@@ -85,7 +85,7 @@ dim_motor_sensor_ = 3 * num_motor_
 time.sleep(0.2)
 
 
-def SimulationThread():
+def SimulationThread(ratio=1.0):
     global mj_data, mj_model, _clock_node
 
     ChannelFactoryInitialize(config.DOMAIN_ID, config.INTERFACE)
@@ -116,7 +116,7 @@ def SimulationThread():
 
         locker.release()
 
-        time_until_next_step = mj_model.opt.timestep - (time.perf_counter() - step_start)
+        time_until_next_step = mj_model.opt.timestep / ratio - (time.perf_counter() - step_start)
         if time_until_next_step > 0:
             time.sleep(time_until_next_step)
 
@@ -135,6 +135,17 @@ def RosSpinThread():
 
 
 if __name__ == "__main__":
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--ratio",
+        type=float,
+        default=1.0,
+        help="Simulation speed ratio (e.g. 0.5 = slower, 2.0 = faster)"
+    )
+    args = parser.parse_args()
+    ratio = args.ratio
+    
     # ROS 2 init
     rclpy.init()
     _clock_node = MujocoClockPublisher()
@@ -145,7 +156,7 @@ if __name__ == "__main__":
 
     # 你的仿真/显示线程
     viewer_thread = Thread(target=PhysicsViewerThread)
-    sim_thread = Thread(target=SimulationThread)
+    sim_thread = Thread(target=SimulationThread, args=(ratio,))
 
     viewer_thread.start()
     sim_thread.start()
