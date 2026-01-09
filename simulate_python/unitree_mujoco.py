@@ -16,23 +16,37 @@ from unitree_sdk2py_bridge import UnitreeSdk2Bridge, ElasticBand
 
 import config
 
+parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--ratio",
+    type=float,
+    default=1.0,
+    help="Simulation speed ratio (e.g. 0.5 = slower, 2.0 = faster)"
+)
+
+parser.add_argument(
+    "--scene",
+    type=str,
+    default="scene",
+    help="Scene files"
+)
+
+args = parser.parse_args()
+ratio = args.ratio
+scene_name = args.scene + ".xml"
 locker = threading.Lock()
 
 current_dir = Path(__file__).resolve().parent
-xml_path = current_dir / config.ROBOT_SCENE
+# xml_path = current_dir / config.ROBOT_SCENE
+xml_path = current_dir / config.ROBOT_SCENE_PATH / scene_name 
 
 mj_model = mujoco.MjModel.from_xml_path(str(xml_path))
 mj_data = mujoco.MjData(mj_model)
 
-# -------------------------
-# ROS 2 /clock publisher
-# -------------------------
 class MujocoClockPublisher(Node):
     def __init__(self):
         super().__init__("mujoco_clock_publisher")
 
-        # /clock 常见 QoS：reliable + transient_local，depth=1
-        # 这样 late-join 的订阅者也能拿到最后一条 clock（更稳）
         qos = QoSProfile(
             history=HistoryPolicy.KEEP_LAST,
             depth=1,
@@ -41,7 +55,6 @@ class MujocoClockPublisher(Node):
         )
         self.pub = self.create_publisher(Clock, "/clock", qos)
 
-        # 可选：用于观测发布频率
         self._last_print_t = 0.0
 
     def publish_sim_time(self, sim_time_sec: float):
@@ -55,13 +68,6 @@ class MujocoClockPublisher(Node):
         msg.clock.sec = sec
         msg.clock.nanosec = nanosec
         self.pub.publish(msg)
-
-        # 可选日志（每 2 秒打印一次）
-        # now_wall = time.time()
-        # if now_wall - self._last_print_t > 2.0:
-        #     self.get_logger().info(f"Publishing /clock = {sec}.{nanosec:09d}")
-        #     self._last_print_t = now_wall
-
 
 _clock_node = None  # type: MujocoClockPublisher | None
 
@@ -136,15 +142,7 @@ def RosSpinThread():
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--ratio",
-        type=float,
-        default=1.0,
-        help="Simulation speed ratio (e.g. 0.5 = slower, 2.0 = faster)"
-    )
-    args = parser.parse_args()
-    ratio = args.ratio
+
     
     # ROS 2 init
     rclpy.init()
