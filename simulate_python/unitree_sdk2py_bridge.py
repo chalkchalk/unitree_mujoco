@@ -113,6 +113,15 @@ class UnitreeSdk2Bridge:
 
     def LowCmdHandler(self, msg: LowCmd_):
         if self.mj_data != None:
+            # for i in range(6):
+            #     index = 12 + i
+            #     msg.motor_cmd[index].kp = 20
+            #     msg.motor_cmd[index].kd = 5
+            #     msg.motor_cmd[index].q = 0.0
+            #     if i == 1:
+            #         msg.motor_cmd[index].q = 0.8
+            #     if i == 2:
+            #         msg.motor_cmd[index].q = -0.8
             for i in range(self.num_motor):
                 self.mj_data.ctrl[i] = (
                     msg.motor_cmd[i].tau
@@ -124,6 +133,8 @@ class UnitreeSdk2Bridge:
                         - self.mj_data.sensordata[i + self.num_motor]
                     )
                 )
+            
+                
 
     def PublishLowState(self):
         if self.mj_data != None:

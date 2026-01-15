@@ -11,6 +11,24 @@
       </default>
       <default class="z1_collision">
         <geom type="cylinder" group="3" mass="0" density="0"/>
+         <default class="z1_gripper_stator_collision">
+          <geom pos="0.051 0 0" type="mesh"/>
+        </default>
+        <default class="z1_gripper_stator_pad_collision_1">
+          <geom type="box" size="0.014 0.015 0.004" pos="0.186 -0.015 -0.0125"/>
+        </default>
+        <default class="z1_gripper_stator_pad_collision_2">
+          <geom type="box" size="0.014 0.015 0.004" pos="0.186 0.015 -0.0125"/>
+        </default>
+        <default class="z1_gripper_mover_collision">
+          <geom type="mesh"/>
+        </default>
+        <default class="z1_gripper_mover_pad_collision_1">
+          <geom type="box" size="0.014 0.015 0.004" pos="0.086 -0.015 -0.0055"/>
+        </default>
+        <default class="z1_gripper_mover_pad_collision_2">
+          <geom type="box" size="0.014 0.015 0.004" pos="0.086 0.015 -0.0055"/>
+        </default>
       </default>
     </default>
 
@@ -78,6 +96,19 @@
     <mesh file="z1/z1_Link04.stl"/>
     <mesh file="z1/z1_Link05.stl"/>
     <mesh file="z1/z1_Link06.stl"/>
+    <mesh file="z1/z1_GripperStator.stl"/>
+    <mesh file="z1/z1_GripperStator_col_1.stl"/>
+    <mesh file="z1/z1_GripperStator_col_2.stl"/>
+    <mesh file="z1/z1_GripperStator_col_3.stl"/>
+    <mesh file="z1/z1_GripperStator_col_4.stl"/>
+    <mesh file="z1/z1_GripperStator_col_5.stl"/>
+    <mesh file="z1/z1_GripperStator_col_6.stl"/>
+    <mesh file="z1/z1_GripperMover.stl"/>
+    <mesh file="z1/z1_GripperMover_col_1.stl"/>
+    <mesh file="z1/z1_GripperMover_col_2.stl"/>
+    <mesh file="z1/z1_GripperMover_col_3.stl"/>
+    <mesh file="z1/z1_GripperMover_col_4.stl"/>
+    <mesh file="z1/z1_GripperMover_col_5.stl"/>
   </asset>
 
   <worldbody>
@@ -243,8 +274,8 @@
       <body name="link00"  pos="0.125 0 0" childclass="z1">
       <inertial pos="-0.00334984 -0.00013615 0.0249584" quat="-0.00692194 0.682592 0.00133293 0.730766" mass="0.472475"
         diaginertia="0.000531375 0.000415207 0.000378658"/>
-      <geom class="z1_visual" mesh="z1_Link00" material="gray" />
-      <geom size="0.0325 0.0255" pos="0 0 0.0255" class="z1_collision"/>
+      <geom class="z1_visual" mesh="z1_Link00" material="gray"/>
+      <geom type="cylinder" size="0.0325 0.0255" pos="0 0 0.0255" class="z1_collision"/>
       <body name="link01" pos="0 0 0.0585">
         <inertial pos="2.47e-06 -0.00025198 0.0231717" quat="0.708578 0.705633 0.000281462 -0.000355927" mass="0.673326"
           diaginertia="0.00128328 0.000839362 0.000719308"/>
@@ -254,34 +285,56 @@
           <inertial pos="-0.110126 0.00240029 0.00158266" quat="0.00748058 0.707092 -0.0114473 0.70699" mass="1.19132"
             diaginertia="0.0246612 0.0243113 0.00100468"/>
           <joint name="z1_joint2" axis="0 1 0" range="0 2.96706" damping="2"/>
-          <geom class="z1_visual" mesh="z1_Link02" material="white"/>
-          <geom size="0.0325 0.051" quat="1 1 0 0" class="z1_collision"/>
-          <geom size="0.0225 0.1175" pos="-0.1625 0 0" quat="1 0 1 0" class="z1_collision"/>
-          <geom size="0.0325 0.0255" pos="-0.35 0 0" quat="1 1 0 0" class="z1_collision"/>
+          <geom class="z1_visual" mesh="z1_Link02" material="gray"/>
+          <geom type="cylinder" size="0.0325 0.051" quat="1 1 0 0" class="z1_collision"/>
+          <geom type="cylinder" size="0.0225 0.1175" pos="-0.1625 0 0" quat="1 0 1 0" class="z1_collision"/>
+          <geom type="cylinder" size="0.0325 0.0255" pos="-0.35 0 0" quat="1 1 0 0" class="z1_collision"/>
           <body name="link03" pos="-0.35 0 0">
             <inertial pos="0.106092 -0.00541815 0.0347638" quat="0.540557 0.443575 0.426319 0.573839" mass="0.839409"
               diaginertia="0.00954365 0.00938711 0.000558432"/>
             <joint name="z1_joint3" axis="0 1 0" range="-2.87979 0"/>
-            <geom class="z1_visual" mesh="z1_Link03" material="white"/>
-            <geom size="0.02 0.058" pos="0.128 0 0.055" quat="1 0 1 0" class="z1_collision"/>
-            <geom size="0.0325 0.0295" pos="0.2205 0 0.055" quat="0.5 -0.5 0.5 0.5" class="z1_collision"/>
-            <body name="link04" pos="0.218 0 0.057">
+            <geom class="z1_visual" mesh="z1_Link03" material="gray"/>
+            <geom type="cylinder" size="0.02 0.058" pos="0.128 0 0.055" quat="1 0 1 0" class="z1_collision"/>
+            <geom type="cylinder" size="0.0325 0.0295" pos="0.2205 0 0.055" quat="0.5 -0.5 0.5 0.5" class="z1_collision"/>
+            <body name="z1_link04" pos="0.218 0 0.057">
               <inertial pos="0.0436668 0.00364738 -0.00170192" quat="0.0390835 0.726445 -0.0526787 0.684087"
                 mass="0.564046" diaginertia="0.000981656 0.00094053 0.000302655"/>
               <joint name="z1_joint4" axis="0 1 0" range="-1.51844 1.51844"/>
               <geom class="z1_visual" mesh="z1_Link04" material="white"/>
-              <geom size="0.0325 0.0335" pos="0.072 0 0" class="z1_collision"/>
+              <geom type="cylinder" size="0.0325 0.0335" pos="0.072 0 0" class="z1_collision"/>
               <body name="link05" pos="0.07 0 0">
                 <inertial pos="0.0312153 0 0.00646316" quat="0.462205 0.535209 0.53785 0.45895" mass="0.389385"
                   diaginertia="0.000558961 0.000547317 0.000167332"/>
                 <joint name="z1_joint5" axis="0 0 1" range="-1.3439 1.3439"/>
-                <geom class="z1_visual" mesh="z1_Link05" material="white"/>
+                <geom class="z1_visual" mesh="z1_Link05"  material="gray"/>
                 <body name="link06" pos="0.0492 0 0">
                   <inertial pos="0.0241569 -0.00017355 -0.00143876" quat="0.998779 0.0457735 -0.00663717 0.0173548"
                     mass="0.288758" diaginertia="0.00018333 0.000147464 0.000146786"/>
                   <joint name="z1_joint6" axis="1 0 0" range="-2.79253 2.79253"/>
                   <geom class="z1_visual" mesh="z1_Link06" material="gray"/>
-                  <geom size="0.0325 0.0255" pos="0.0255 0 0" quat="1 0 1 0" class="z1_collision"/>
+                  <geom type="cylinder" size="0.0325 0.0255" pos="0.0255 0 0" quat="1 0 1 0" class="z1_collision"/>
+                  <geom pos="0.051 0 0" type="mesh" mesh="z1_GripperStator" class="z1_visual" material="gray"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_1"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_2"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_3"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_4"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_5"/>
+                  <geom class="z1_gripper_stator_collision" mesh="z1_GripperStator_col_6"/>
+                  <geom class="z1_gripper_stator_pad_collision_1"/>
+                  <geom class="z1_gripper_stator_pad_collision_2"/>
+                  <body name="gripperMover" pos="0.1 0 0">
+                    <inertial pos="0.0132063 0.00476708 0.00380534" quat="0.0631093 0.669067 -0.0615783 0.737953"
+                      mass="0.276213" diaginertia="0.000359044 0.000270888 0.000172378"/>
+                    <joint name="z1_jointGripper" axis="0 1 0" range="-1.51844 0"/>
+                    <geom type="mesh" mesh="z1_GripperMover" class="z1_visual" material="gray"/>
+                    <geom class="z1_gripper_mover_collision" mesh="z1_GripperMover_col_1"/>
+                    <geom class="z1_gripper_mover_collision" mesh="z1_GripperMover_col_2"/>
+                    <geom class="z1_gripper_mover_collision" mesh="z1_GripperMover_col_3"/>
+                    <geom class="z1_gripper_mover_collision" mesh="z1_GripperMover_col_4"/>
+                    <geom class="z1_gripper_mover_collision" mesh="z1_GripperMover_col_5"/>
+                    <geom class="z1_gripper_mover_pad_collision_1"/>
+                    <geom class="z1_gripper_mover_pad_collision_2"/>
+                  </body>
                 </body>
               </body>
             </body>
@@ -289,9 +342,7 @@
         </body>
       </body>
     </body>
-
-
-    </body>
+        </body>
   </worldbody>
 
 
@@ -315,6 +366,7 @@
     <motor name="z1_motor4" joint="z1_joint4" gear='1' ctrlrange="-30 30" />
     <motor name="z1_motor5" joint="z1_joint5" gear='1' ctrlrange="-30 30" />
     <motor name="z1_motor6" joint="z1_joint6" gear='1' ctrlrange="-30 30" />
+    <motor name="z1_gripper" joint="z1_jointGripper"  gear='1'  ctrlrange="-1.51844 0"/>
   </actuator>
 
   <sensor>
@@ -337,6 +389,7 @@
     <jointpos name="z1_joint4_pos" joint="z1_joint4" />
     <jointpos name="z1_joint5_pos" joint="z1_joint5" />
     <jointpos name="z1_joint6_pos" joint="z1_joint6" />
+    <jointpos name="z1_gripper_pos" joint="z1_jointGripper" />
 
 
     <jointvel name="FR_hip_vel" joint="FR_hip_joint" />
@@ -351,6 +404,7 @@
     <jointvel name="RL_hip_vel" joint="RL_hip_joint" />
     <jointvel name="RL_thigh_vel" joint="RL_thigh_joint" />
     <jointvel name="RL_calf_vel" joint="RL_calf_joint" />
+    
 
     <jointvel name="z1_joint1_vel" joint="z1_joint1" />
     <jointvel name="z1_joint2_vel" joint="z1_joint2" />
@@ -358,6 +412,7 @@
     <jointvel name="z1_joint4_vel" joint="z1_joint4" />
     <jointvel name="z1_joint5_vel" joint="z1_joint5" />
     <jointvel name="z1_joint6_vel" joint="z1_joint6" />
+    <jointvel name="z1_gripper_vel" joint="z1_jointGripper" />
 
     <jointactuatorfrc name="FR_hip_torque" joint="FR_hip_joint" noise="0.01" />
     <jointactuatorfrc name="FR_thigh_torque" joint="FR_thigh_joint" noise="0.01" />
@@ -378,6 +433,7 @@
     <jointactuatorfrc name="z1_joint4_torque" joint="z1_joint4"  noise="0.01" />
     <jointactuatorfrc name="z1_joint5_torque" joint="z1_joint5"  noise="0.01" />
     <jointactuatorfrc name="z1_joint6_torque" joint="z1_joint6"  noise="0.01" />
+    <jointactuatorfrc name="z1_gripper_torque" joint="z1_jointGripper"  noise="0.01" />
 
     <framequat name="imu_quat" objtype="site" objname="imu" />
     <gyro name="imu_gyro" site="imu" />
@@ -393,6 +449,6 @@
   </sensor>
   
   <keyframe>
-    <key name="home" qpos="0 0.785 -0.261 -0.523 0 0" ctrl="0 0.785 -0.261 -0.523 0 0"/>
+    <key name="home" qpos="0 0 0.1 1 0 0 0 0.3 1.5 -2.7 -0.15 1.2 -2.7 0.5 1.2 -2.7 -0.5 1.2 -2.7 0 0.785 -0.261 -0.523 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0.785 -0.261 -0.523 0 0"/>
   </keyframe>
 </mujoco>
