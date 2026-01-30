@@ -54,31 +54,6 @@ JOINT_INIT = {
 }
 
 
-class MujocoClockPublisher(Node):
-    def __init__(self):
-        super().__init__("mujoco_clock_publisher")
-
-        qos = QoSProfile(
-            history=HistoryPolicy.KEEP_LAST,
-            depth=1,
-            reliability=ReliabilityPolicy.RELIABLE,
-            durability=DurabilityPolicy.TRANSIENT_LOCAL,
-        )
-        self.pub = self.create_publisher(Clock, "/clock", qos)
-
-        self._last_print_t = 0.0
-    
-    def publish_sim_time(self, sim_time_sec: float):
-        # sim_time_sec: float seconds
-        sec = int(sim_time_sec)
-        nanosec = int((sim_time_sec - sec) * 1e9)
-        if nanosec < 0:
-            nanosec = 0
-
-        msg = Clock()
-        msg.clock.sec = sec
-        msg.clock.nanosec = nanosec
-        self.pub.publish(msg)
 
 
 class MuJoCoSimulationNode(Node):
@@ -115,6 +90,17 @@ class MuJoCoSimulationNode(Node):
         # IMU
         self.last_base_linvel = np.zeros((3, 1), np.float64)
         self.timestamp = 0.0
+        
+        qos = QoSProfile(
+            history=HistoryPolicy.KEEP_LAST,
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,
+        )
+        self.clock_pub = self.create_publisher(Clock, "/clock", qos)
+
+        self._last_print_t = 0.0
+
 
         self.get_logger().info(f"[INFO] MuJoCo model loaded, dof = {self.dof_num}")
 
@@ -176,8 +162,6 @@ class MuJoCoSimulationNode(Node):
                 self._apply_joint_torque()
                 # 模拟一步
                 mujoco.mj_step(self.model, self.data)
-                if _clock_node is not None:
-                    _clock_node.publish_sim_time(float(self.data.time))
 
                 self.timestamp = step * DT
 
@@ -262,6 +246,11 @@ class MuJoCoSimulationNode(Node):
         imu_msg.data.acc_y = float(body_acc[1])
         imu_msg.data.acc_z = float(body_acc[2])
         self.imu_pub.publish(imu_msg)
+        
+        msg = Clock()
+        msg.clock.sec = sec
+        msg.clock.nanosec = nanosec
+        self.clock_pub.publish(msg)
 
         # ----- 关节 -----
         q = self.data.qpos[7:7 + self.dof_num]
@@ -300,9 +289,7 @@ class MuJoCoSimulationNode(Node):
 if __name__ == "__main__":
     np.set_printoptions(precision=4, suppress=True)
     rclpy.init()
-    _clock_node = MujocoClockPublisher()
     sim_node = MuJoCoSimulationNode()
     sim_node.start()
     sim_node.destroy_node()
-    _clock_node.destroy_node()
     rclpy.shutdown()
