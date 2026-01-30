@@ -1,0 +1,12 @@
+<mujoco>
+      <geom mesh="hr_wheel_0" material="hr_wheel/Material-塑胶__3_.005" class="visual"/>
+      <geom mesh="hr_wheel_1" material="hr_wheel/Material-塑胶__3_.004" class="visual"/>
+      <geom mesh="hr_wheel_2" material="hr_wheel/Material-塑胶__3_.003" class="visual"/>
+      <geom mesh="hr_wheel_3" material="hr_wheel/Material-塑胶__3_.002" class="visual"/>
+      <geom mesh="hr_wheel_4" material="hr_wheel/Material-塑胶__3_.001" class="visual"/>
+      <geom mesh="hr_wheel_5" material="hr_wheel/Material-塑胶__3_" class="visual"/>
+      <geom mesh="hr_wheel_6" material="hr_wheel/Material-7011油漆.001" class="visual"/>
+      <geom mesh="hr_wheel_7" material="hr_wheel/Material-塑胶.001" class="visual"/>
+      <geom mesh="hr_wheel_8" material="hr_wheel/Material-塑胶" class="visual"/>
+      <geom mesh="hr_wheel_9" material="hr_wheel/Material-7011油漆" class="visual"/>
+</mujoco>

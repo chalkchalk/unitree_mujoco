@@ -1,0 +1,11 @@
+<mujoco>
+      <geom mesh="hr_hipy_0" material="hr_hipy/Material-塑胶" class="visual"/>
+      <geom mesh="hr_hipy_1" material="hr_hipy/Material-7011油漆.005" class="visual"/>
+      <geom mesh="hr_hipy_2" material="hr_hipy/Material-7011油漆.004" class="visual"/>
+      <geom mesh="hr_hipy_3" material="hr_hipy/Material-7024塑胶" class="visual"/>
+      <geom mesh="hr_hipy_4" material="hr_hipy/Material-7011油漆.003" class="visual"/>
+      <geom mesh="hr_hipy_5" material="hr_hipy/Material-7011油漆.002" class="visual"/>
+      <geom mesh="hr_hipy_6" material="hr_hipy/Material-7011油漆.001" class="visual"/>
+      <geom mesh="hr_hipy_7" material="hr_hipy/Material-7011油漆" class="visual"/>
+      <geom mesh="hr_hipy_8" material="hr_hipy/Material-7011塑胶" class="visual"/>
+</mujoco>

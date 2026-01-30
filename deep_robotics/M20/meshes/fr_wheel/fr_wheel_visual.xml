@@ -1,0 +1,11 @@
+<mujoco>
+      <geom mesh="fr_wheel_0" material="fr_wheel/Material-7011油漆.006" class="visual"/>
+      <geom mesh="fr_wheel_1" material="fr_wheel/Material-7011油漆.005" class="visual"/>
+      <geom mesh="fr_wheel_2" material="fr_wheel/Material-7011油漆.004" class="visual"/>
+      <geom mesh="fr_wheel_3" material="fr_wheel/Material-7011油漆.003" class="visual"/>
+      <geom mesh="fr_wheel_4" material="fr_wheel/Material-7011油漆.002" class="visual"/>
+      <geom mesh="fr_wheel_5" material="fr_wheel/Material-7011油漆.001" class="visual"/>
+      <geom mesh="fr_wheel_6" material="fr_wheel/Material-塑胶__3_" class="visual"/>
+      <geom mesh="fr_wheel_7" material="fr_wheel/Material-塑胶" class="visual"/>
+      <geom mesh="fr_wheel_8" material="fr_wheel/Material-7011油漆" class="visual"/>
+</mujoco>

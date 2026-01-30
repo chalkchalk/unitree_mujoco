@@ -1,0 +1,6 @@
+<mujoco>
+  <asset>
+    <material name="hl_hipx/Material-7024油漆" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <mesh file="hl_hipx.obj"/>
+  </asset>
+</mujoco>

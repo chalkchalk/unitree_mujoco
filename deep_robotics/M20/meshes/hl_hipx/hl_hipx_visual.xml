@@ -1,0 +1,3 @@
+<mujoco>
+      <geom material="hl_hipx/Material-7024油漆" mesh="hl_hipx" class="visual"/>
+</mujoco>

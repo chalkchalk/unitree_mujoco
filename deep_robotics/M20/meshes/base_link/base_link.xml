@@ -1,0 +1,256 @@
+<mujoco model="base_link">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Material-7011塑胶" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011塑胶.001" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011塑胶.002" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011塑胶.003" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.001" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.002" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.003" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.004" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.005" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.006" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.007" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.008" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.009" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.010" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.011" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.012" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.013" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.014" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.015" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.016" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.017" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.018" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.019" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.020" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.021" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.022" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7011油漆.023" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="Material-7024油漆" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.001" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.002" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.003" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.004" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.005" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.006" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.007" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.008" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.009" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.010" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.011" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-7024油漆.012" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="Material-塑胶" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶.001" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__1_" specular="0.5" shininess="0.25" rgba="1.000000 1.000000 1.000000 0.610000"/>
+    <material name="Material-塑胶__1_.001" specular="0.5" shininess="0.25" rgba="1.000000 1.000000 1.000000 0.610000"/>
+    <material name="Material-塑胶__2_" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__2_.001" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__2_.002" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__2_.003" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__3_" specular="0.5" shininess="0.25" rgba="0.854902 0.850980 0.878431 1.000000"/>
+    <material name="Material-塑胶__3_.001" specular="0.5" shininess="0.25" rgba="0.854902 0.850980 0.878431 1.000000"/>
+    <material name="Material-塑胶__3_.002" specular="0.5" shininess="0.25" rgba="0.854902 0.850980 0.878431 1.000000"/>
+    <material name="Material-塑胶__3_.003" specular="0.5" shininess="0.25" rgba="0.854902 0.850980 0.878431 1.000000"/>
+    <material name="Material-塑胶__4_" specular="0.5" shininess="0.25" rgba="1.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__7_" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__7_.001" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__导入的_" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__导入的_.001" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-塑胶__导入的_.002" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <material name="Material-金属__1_" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <mesh file="base_link_0.obj"/>
+    <mesh file="base_link_1.obj"/>
+    <mesh file="base_link_2.obj"/>
+    <mesh file="base_link_3.obj"/>
+    <mesh file="base_link_4.obj"/>
+    <mesh file="base_link_5.obj"/>
+    <mesh file="base_link_6.obj"/>
+    <mesh file="base_link_7.obj"/>
+    <mesh file="base_link_8.obj"/>
+    <mesh file="base_link_9.obj"/>
+    <mesh file="base_link_10.obj"/>
+    <mesh file="base_link_11.obj"/>
+    <mesh file="base_link_12.obj"/>
+    <mesh file="base_link_13.obj"/>
+    <mesh file="base_link_14.obj"/>
+    <mesh file="base_link_15.obj"/>
+    <mesh file="base_link_16.obj"/>
+    <mesh file="base_link_17.obj"/>
+    <mesh file="base_link_18.obj"/>
+    <mesh file="base_link_19.obj"/>
+    <mesh file="base_link_20.obj"/>
+    <mesh file="base_link_21.obj"/>
+    <mesh file="base_link_22.obj"/>
+    <mesh file="base_link_23.obj"/>
+    <mesh file="base_link_24.obj"/>
+    <mesh file="base_link_25.obj"/>
+    <mesh file="base_link_26.obj"/>
+    <mesh file="base_link_27.obj"/>
+    <mesh file="base_link_28.obj"/>
+    <mesh file="base_link_29.obj"/>
+    <mesh file="base_link_30.obj"/>
+    <mesh file="base_link_31.obj"/>
+    <mesh file="base_link_32.obj"/>
+    <mesh file="base_link_33.obj"/>
+    <mesh file="base_link_34.obj"/>
+    <mesh file="base_link_35.obj"/>
+    <mesh file="base_link_36.obj"/>
+    <mesh file="base_link_37.obj"/>
+    <mesh file="base_link_38.obj"/>
+    <mesh file="base_link_39.obj"/>
+    <mesh file="base_link_40.obj"/>
+    <mesh file="base_link_41.obj"/>
+    <mesh file="base_link_42.obj"/>
+    <mesh file="base_link_43.obj"/>
+    <mesh file="base_link_44.obj"/>
+    <mesh file="base_link_45.obj"/>
+    <mesh file="base_link_46.obj"/>
+    <mesh file="base_link_47.obj"/>
+    <mesh file="base_link_48.obj"/>
+    <mesh file="base_link_49.obj"/>
+    <mesh file="base_link_50.obj"/>
+    <mesh file="base_link_51.obj"/>
+    <mesh file="base_link_52.obj"/>
+    <mesh file="base_link_53.obj"/>
+    <mesh file="base_link_54.obj"/>
+    <mesh file="base_link_55.obj"/>
+    <mesh file="base_link_56.obj"/>
+    <mesh file="base_link_57.obj"/>
+    <mesh file="base_link_58.obj"/>
+    <mesh file="base_link_59.obj"/>
+  </asset>
+  <worldbody>
+    <body name="base_link">
+      <geom mesh="base_link_0" material="Material-7024油漆.012" class="visual"/>
+      <geom mesh="base_link_1" material="Material-7024油漆.011" class="visual"/>
+      <geom mesh="base_link_2" material="Material-塑胶__7_.001" class="visual"/>
+      <geom mesh="base_link_3" material="Material-塑胶__3_.003" class="visual"/>
+      <geom mesh="base_link_4" material="Material-7024油漆.010" class="visual"/>
+      <geom mesh="base_link_5" material="Material-7024油漆.009" class="visual"/>
+      <geom mesh="base_link_6" material="Material-7024油漆.008" class="visual"/>
+      <geom mesh="base_link_7" material="Material-7024油漆.007" class="visual"/>
+      <geom mesh="base_link_8" material="Material-7011塑胶.003" class="visual"/>
+      <geom mesh="base_link_9" material="Material-7011塑胶.002" class="visual"/>
+      <geom mesh="base_link_10" material="Material-7024油漆.006" class="visual"/>
+      <geom mesh="base_link_11" material="Material-7024油漆.005" class="visual"/>
+      <geom mesh="base_link_12" material="Material-7024油漆.004" class="visual"/>
+      <geom mesh="base_link_13" material="Material-塑胶__3_.002" class="visual"/>
+      <geom mesh="base_link_14" material="Material-塑胶__导入的_.002" class="visual"/>
+      <geom mesh="base_link_15" material="Material-塑胶__导入的_.001" class="visual"/>
+      <geom mesh="base_link_16" material="Material-7024油漆.003" class="visual"/>
+      <geom mesh="base_link_17" material="Material-塑胶__3_.001" class="visual"/>
+      <geom mesh="base_link_18" material="Material-塑胶__1_.001" class="visual"/>
+      <geom mesh="base_link_19" material="Material-金属__1_" class="visual"/>
+      <geom mesh="base_link_20" material="Material-塑胶__1_" class="visual"/>
+      <geom mesh="base_link_21" material="Material-塑胶__7_" class="visual"/>
+      <geom mesh="base_link_22" material="Material-塑胶__2_.003" class="visual"/>
+      <geom mesh="base_link_23" material="Material-塑胶__2_.002" class="visual"/>
+      <geom mesh="base_link_24" material="Material-7011塑胶.001" class="visual"/>
+      <geom mesh="base_link_25" material="Material-7011塑胶" class="visual"/>
+      <geom mesh="base_link_26" material="Material-塑胶.001" class="visual"/>
+      <geom mesh="base_link_27" material="Material-塑胶" class="visual"/>
+      <geom mesh="base_link_28" material="Material-7024油漆.002" class="visual"/>
+      <geom mesh="base_link_29" material="Material-塑胶__4_" class="visual"/>
+      <geom mesh="base_link_30" material="Material-塑胶__3_" class="visual"/>
+      <geom mesh="base_link_31" material="Material-7024油漆.001" class="visual"/>
+      <geom mesh="base_link_32" material="Material-7024油漆" class="visual"/>
+      <geom mesh="base_link_33" material="Material-塑胶__导入的_" class="visual"/>
+      <geom mesh="base_link_34" material="Material-7011油漆.023" class="visual"/>
+      <geom mesh="base_link_35" material="Material-7011油漆.022" class="visual"/>
+      <geom mesh="base_link_36" material="Material-7011油漆.021" class="visual"/>
+      <geom mesh="base_link_37" material="Material-7011油漆.020" class="visual"/>
+      <geom mesh="base_link_38" material="Material-7011油漆.019" class="visual"/>
+      <geom mesh="base_link_39" material="Material-7011油漆.018" class="visual"/>
+      <geom mesh="base_link_40" material="Material-7011油漆.017" class="visual"/>
+      <geom mesh="base_link_41" material="Material-7011油漆.016" class="visual"/>
+      <geom mesh="base_link_42" material="Material-7011油漆.015" class="visual"/>
+      <geom mesh="base_link_43" material="Material-7011油漆.014" class="visual"/>
+      <geom mesh="base_link_44" material="Material-7011油漆.013" class="visual"/>
+      <geom mesh="base_link_45" material="Material-7011油漆.012" class="visual"/>
+      <geom mesh="base_link_46" material="Material-7011油漆.011" class="visual"/>
+      <geom mesh="base_link_47" material="Material-7011油漆.010" class="visual"/>
+      <geom mesh="base_link_48" material="Material-7011油漆.009" class="visual"/>
+      <geom mesh="base_link_49" material="Material-7011油漆.008" class="visual"/>
+      <geom mesh="base_link_50" material="Material-7011油漆.007" class="visual"/>
+      <geom mesh="base_link_51" material="Material-7011油漆.006" class="visual"/>
+      <geom mesh="base_link_52" material="Material-7011油漆.005" class="visual"/>
+      <geom mesh="base_link_53" material="Material-7011油漆.004" class="visual"/>
+      <geom mesh="base_link_54" material="Material-7011油漆.003" class="visual"/>
+      <geom mesh="base_link_55" material="Material-7011油漆.002" class="visual"/>
+      <geom mesh="base_link_56" material="Material-7011油漆.001" class="visual"/>
+      <geom mesh="base_link_57" material="Material-7011油漆" class="visual"/>
+      <geom mesh="base_link_58" material="Material-塑胶__2_.001" class="visual"/>
+      <geom mesh="base_link_59" material="Material-塑胶__2_" class="visual"/>
+      <geom mesh="base_link_0" class="collision"/>
+      <geom mesh="base_link_1" class="collision"/>
+      <geom mesh="base_link_2" class="collision"/>
+      <geom mesh="base_link_3" class="collision"/>
+      <geom mesh="base_link_4" class="collision"/>
+      <geom mesh="base_link_5" class="collision"/>
+      <geom mesh="base_link_6" class="collision"/>
+      <geom mesh="base_link_7" class="collision"/>
+      <geom mesh="base_link_8" class="collision"/>
+      <geom mesh="base_link_9" class="collision"/>
+      <geom mesh="base_link_10" class="collision"/>
+      <geom mesh="base_link_11" class="collision"/>
+      <geom mesh="base_link_12" class="collision"/>
+      <geom mesh="base_link_13" class="collision"/>
+      <geom mesh="base_link_14" class="collision"/>
+      <geom mesh="base_link_15" class="collision"/>
+      <geom mesh="base_link_16" class="collision"/>
+      <geom mesh="base_link_17" class="collision"/>
+      <geom mesh="base_link_18" class="collision"/>
+      <geom mesh="base_link_19" class="collision"/>
+      <geom mesh="base_link_20" class="collision"/>
+      <geom mesh="base_link_21" class="collision"/>
+      <geom mesh="base_link_22" class="collision"/>
+      <geom mesh="base_link_23" class="collision"/>
+      <geom mesh="base_link_24" class="collision"/>
+      <geom mesh="base_link_25" class="collision"/>
+      <geom mesh="base_link_26" class="collision"/>
+      <geom mesh="base_link_27" class="collision"/>
+      <geom mesh="base_link_28" class="collision"/>
+      <geom mesh="base_link_29" class="collision"/>
+      <geom mesh="base_link_30" class="collision"/>
+      <geom mesh="base_link_31" class="collision"/>
+      <geom mesh="base_link_32" class="collision"/>
+      <geom mesh="base_link_33" class="collision"/>
+      <geom mesh="base_link_34" class="collision"/>
+      <geom mesh="base_link_35" class="collision"/>
+      <geom mesh="base_link_36" class="collision"/>
+      <geom mesh="base_link_37" class="collision"/>
+      <geom mesh="base_link_38" class="collision"/>
+      <geom mesh="base_link_39" class="collision"/>
+      <geom mesh="base_link_40" class="collision"/>
+      <geom mesh="base_link_41" class="collision"/>
+      <geom mesh="base_link_42" class="collision"/>
+      <geom mesh="base_link_43" class="collision"/>
+      <geom mesh="base_link_44" class="collision"/>
+      <geom mesh="base_link_45" class="collision"/>
+      <geom mesh="base_link_46" class="collision"/>
+      <geom mesh="base_link_47" class="collision"/>
+      <geom mesh="base_link_48" class="collision"/>
+      <geom mesh="base_link_49" class="collision"/>
+      <geom mesh="base_link_50" class="collision"/>
+      <geom mesh="base_link_51" class="collision"/>
+      <geom mesh="base_link_52" class="collision"/>
+      <geom mesh="base_link_53" class="collision"/>
+      <geom mesh="base_link_54" class="collision"/>
+      <geom mesh="base_link_55" class="collision"/>
+      <geom mesh="base_link_56" class="collision"/>
+      <geom mesh="base_link_57" class="collision"/>
+      <geom mesh="base_link_58" class="collision"/>
+      <geom mesh="base_link_59" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

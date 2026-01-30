@@ -1,0 +1,7 @@
+<mujoco>
+      <geom mesh="fr_knee_0" material="fr_knee/Material-7011油漆.001" class="visual"/>
+      <geom mesh="fr_knee_1" material="fr_knee/Material-7024塑胶" class="visual"/>
+      <geom mesh="fr_knee_2" material="fr_knee/Material-7011油漆" class="visual"/>
+      <geom mesh="fr_knee_3" material="fr_knee/Material-7024油漆.001" class="visual"/>
+      <geom mesh="fr_knee_4" material="fr_knee/Material-7024油漆" class="visual"/>
+</mujoco>

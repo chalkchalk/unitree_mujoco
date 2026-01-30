@@ -1,0 +1,22 @@
+<mujoco>
+  <asset>
+    <material name="hr_hipy/Material-7011塑胶" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆.001" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆.002" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆.003" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆.004" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7011油漆.005" specular="0.5" shininess="0.25" rgba="0.309804 0.364706 0.419608 1.000000"/>
+    <material name="hr_hipy/Material-7024塑胶" specular="0.5" shininess="0.25" rgba="0.239216 0.290196 0.337255 1.000000"/>
+    <material name="hr_hipy/Material-塑胶" specular="0.5" shininess="0.25" rgba="0.000000 0.000000 0.000000 1.000000"/>
+    <mesh file="hr_hipy_0.obj"/>
+    <mesh file="hr_hipy_1.obj"/>
+    <mesh file="hr_hipy_2.obj"/>
+    <mesh file="hr_hipy_3.obj"/>
+    <mesh file="hr_hipy_4.obj"/>
+    <mesh file="hr_hipy_5.obj"/>
+    <mesh file="hr_hipy_6.obj"/>
+    <mesh file="hr_hipy_7.obj"/>
+    <mesh file="hr_hipy_8.obj"/>
+  </asset>
+</mujoco>
