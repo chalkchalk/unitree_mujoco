@@ -323,4 +323,8 @@
         <gyro site="imu_site"/>
 
     </sensor>
+
+    <keyframe>
+        <key name="reset_pose" qpos="0  0  0.2  1 0 0 0  -0.438  -1.16  2.76  0  0.438  -1.16  2.76  0  -0.438  1.16  -2.76  0  0.438  1.16  -2.76  0"/>
+    </keyframe>
 </mujoco>

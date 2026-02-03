@@ -78,6 +78,7 @@ class MuJoCoSimulationNode(Node):
 
         # 初始化站立姿态
         self._set_initial_pose(model_key)
+        self.model_key = model_key
 
         # 缓存
         self.kp_cmd = np.zeros((self.dof_num, 1), np.float32)
@@ -90,6 +91,9 @@ class MuJoCoSimulationNode(Node):
         # IMU
         self.last_base_linvel = np.zeros((3, 1), np.float64)
         self.timestamp = 0.0
+        
+        self._reset_requested = False
+        self._reset_lock = threading.Lock()
         
         qos = QoSProfile(
             history=HistoryPolicy.KEEP_LAST,
@@ -119,8 +123,15 @@ class MuJoCoSimulationNode(Node):
         # 可视化
         self.viewer = None
         if USE_VIEWER:
-            self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
-
+            self.viewer = mujoco.viewer.launch_passive(self.model, self.data, key_callback=self._on_key)
+            
+    def _on_key(self, keycode):
+        import glfw
+        if keycode in (glfw.KEY_BACKSPACE, glfw.KEY_R):
+            with self._reset_lock:
+                self._reset_requested = True
+            self.get_logger().info("Reset requested")
+            
     def _set_initial_pose(self, key: str):
         """关节位置设置为与 PyBullet 脚本一致的初始角度"""
         qpos0 = self.data.qpos.copy()
@@ -155,6 +166,28 @@ class MuJoCoSimulationNode(Node):
         step = 0
         last_time = time.time()
         while rclpy.ok():
+            do_reset = False
+            with self._reset_lock:
+                if self._reset_requested:
+                    self._reset_requested = False
+                    do_reset = True
+
+            if do_reset:
+                self.get_logger().info("Resetting to initial pose (sim thread)")
+                self._set_initial_pose(self.model_key)
+
+                # 清速度和控制，避免复位后被旧命令拉走
+                self.data.qvel[:] = 0
+                self.data.ctrl[:] = 0
+                self.kp_cmd[:] = 0
+                self.kd_cmd[:] = 0
+                self.vel_cmd[:] = 0
+                self.tau_ff[:] = 0
+                self.input_tq[:] = 0
+
+                # 让目标位置跟当前一致，避免 PD 冲击（可选但推荐）
+                q = self.data.qpos[7:7 + self.dof_num].copy().reshape(-1, 1)
+                self.pos_cmd[:] = q
             if time.time() - last_time >= DT:
                 last_time = time.time()
                 step += 1
