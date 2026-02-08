@@ -149,17 +149,20 @@ class MuJoCoSimulationNode(Node):
 
         pub_pos = np.zeros(self.dof_num, dtype=np.float32)
         pub_vel = np.zeros(self.dof_num, dtype=np.float32)
+        pub_tau = np.zeros(self.dof_num, dtype=np.float32)
         for i in range(self.dof_num):
             joint_cmd = msg.data.joints_data[i]
             self.kp_cmd[i] = joint_cmd.kp
             self.kd_cmd[i] = joint_cmd.kd
             pub_pos[i] = joint_cmd.position
             pub_vel[i] = joint_cmd.velocity
-            self.tau_ff[i] = joint_cmd.torque  # tau_ff no processing
+            pub_tau[i] = joint_cmd.torque  
+            # self.tau_ff[i] = joint_cmd.torque  # tau_ff no processing
 
         # Convert: raw = published * dir + offset_rad
         self.pos_cmd.flat = pub_pos * JOINT_DIR + POS_OFFSET_RAD
         self.vel_cmd.flat = pub_vel * JOINT_DIR
+        self.tau_ff.flat = pub_tau * JOINT_DIR
 
     def start(self):
         # 主模拟循环
@@ -201,6 +204,7 @@ class MuJoCoSimulationNode(Node):
                 # 采样 & 发送观测 (every 5 steps for 200 Hz)
                 if step % 5 == 0:
                     self._publish_robot_state(step)
+                self._publish_ros_clock(step)
 
                 # 可视化
                 if self.viewer and step % RENDER_INTERVAL == 0:
@@ -247,6 +251,14 @@ class MuJoCoSimulationNode(Node):
         return np.array([roll, pitch, yaw], dtype=np.float32)
 
     # --------------------------------------------------------
+    def _publish_ros_clock(self, setp:int):
+        sec = int(self.timestamp)
+        nanosec = int((self.timestamp - sec) * 1e9)
+        msg = Clock()
+        msg.clock.sec = sec
+        msg.clock.nanosec = nanosec
+        self.clock_pub.publish(msg)
+
 
     def _publish_robot_state(self, step: int):
         # ----- IMU -----
@@ -280,10 +292,8 @@ class MuJoCoSimulationNode(Node):
         imu_msg.data.acc_z = float(body_acc[2])
         self.imu_pub.publish(imu_msg)
         
-        msg = Clock()
-        msg.clock.sec = sec
-        msg.clock.nanosec = nanosec
-        self.clock_pub.publish(msg)
+        # print( self.data.qpos[0:3], self.data.qvel[0:3])
+        
 
         # ----- 关节 -----
         q = self.data.qpos[7:7 + self.dof_num]
