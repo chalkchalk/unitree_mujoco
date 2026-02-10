@@ -18,14 +18,14 @@ import config
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
-    "--ratio",
+    "-t","--ratio",
     type=float,
     default=1.0,
     help="Simulation speed ratio (e.g. 0.5 = slower, 2.0 = faster)"
 )
 
 parser.add_argument(
-    "--scene",
+    "-s", "--scene",
     type=str,
     default="scene",
     help="Scene files"
@@ -33,7 +33,7 @@ parser.add_argument(
 
 
 parser.add_argument(
-    "--robot",
+    "-r,", "--robot",
     type=str,
     default="go2",
     help="robot type"
