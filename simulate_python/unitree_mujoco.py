@@ -31,14 +31,31 @@ parser.add_argument(
     help="Scene files"
 )
 
+
+parser.add_argument(
+    "--robot",
+    type=str,
+    default="go2",
+    help="robot type"
+)
+
 args = parser.parse_args()
 ratio = args.ratio
 scene_name = args.scene + ".xml"
 locker = threading.Lock()
 
+ROBOT = args.robot # Robot name, "go2", "b2", "b2w", "h1", "go2w", "g1" 
+ROBOT_SCENE = "../unitree_robots/" + ROBOT + "/scene.xml" # Robot scene
+ROBOT_SCENE_PATH = "../unitree_robots/" + ROBOT
+
+config.ROBOT = ROBOT
+config.ROBOT_SCENE = ROBOT_SCENE
+config.ROBOT_SCENE_PATH = ROBOT_SCENE_PATH
+
+
 current_dir = Path(__file__).resolve().parent
 # xml_path = current_dir / config.ROBOT_SCENE
-xml_path = current_dir / config.ROBOT_SCENE_PATH / scene_name 
+xml_path = current_dir / ROBOT_SCENE_PATH / scene_name 
 
 mj_model = mujoco.MjModel.from_xml_path(str(xml_path))
 mj_data = mujoco.MjData(mj_model)
